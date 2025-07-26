@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Adityaraj Shrivastava | Portfolio</title>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/typewriter-effect@2.18.0/dist/core.js"></script>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -59,6 +60,7 @@
         <li><a href="#skills" class="hover:text-white block">Skills</a></li>
         <li><a href="#projects" class="hover:text-white block">Projects</a></li>
         <li><a href="#contact" class="hover:text-white block">Contact</a></li>
+        <li><a href="My Resume3.pdf" target="_blank" class="hover:text-white transition text-purple-400 font-semibold">Resume</a></li>
       </ul>
     </div>
   </nav>
@@ -78,8 +80,8 @@
   <!-- About Me Section -->
 <section id="about" data-aos="fade-up" class="p-8 max-w-5xl mx-auto">
     <h2 class="text-3xl font-bold mb-4 text-purple-400">About Me</h2>
-    <p class="text-gray-300 leading-relaxed mb-6">
-      I’m a 3rd-year Computer Science Engineering student at VIT Chennai, specializing in cybersecurity and frontend development. I enjoy solving real-world problems, conducting workshops, and building secure, responsive web experiences. My journey is fueled by curiosity and a deep commitment to learning.
+    <p id="about-typewriter" class="text-gray-300 leading-relaxed mb-6">
+        I’m a 3rd-year Computer Science Engineering student at VIT Chennai, specializing in Frontend development and learning Ethical Hacking. I enjoy solving real-world problems, conducting workshops, and building secure, responsive web experiences. My journey is fueled by curiosity and a deep commitment to learning.
     </p>
   
     <!-- Spacer between About and Experience -->
@@ -210,7 +212,8 @@
   
     </div>
   </section>
-<!-- Certifications Section -->
+  
+  <!-- Certifications Section -->
   <section id="certifications" data-aos="fade-up" class="p-8 max-w-5xl mx-auto">
     <h2 class="text-3xl font-bold mb-8 text-center text-white">Certifications</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
@@ -228,7 +231,6 @@
       </div>
     </div>
   </section>
-
 <!-- Contact Section -->
 <section id="contact" class="py-20 px-6 text-center bg-black text-white">
     <h2 class="text-3xl font-bold mb-4 text-purple-400">Contact Me</h2>
@@ -359,6 +361,18 @@
       duration: 1000,
       once: false
     });
+  </script>
+  <script>
+    const aboutText = "I’m a 3rd-year Computer Science Engineering student at VIT Chennai, specializing in cybersecurity and frontend development. I enjoy solving real-world problems, conducting workshops, and building secure, responsive web experiences. My journey is fueled by curiosity and a deep commitment to learning.";
+  
+    const typewriterAbout = new Typewriter(document.getElementById('about-typewriter'), {
+      loop: false,
+      delay: 30
+    });
+  
+    typewriterAbout
+      .typeString(aboutText)
+      .start();
   </script>
   
 </body>
