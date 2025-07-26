@@ -7,6 +7,8 @@
   <title>Adityaraj Shrivastava | Portfolio</title>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/typewriter-effect@2.18.0/dist/core.js"></script>
+  <!-- Swiper.js CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -69,7 +71,7 @@
   <!-- Hero Section -->
   <section class="min-h-screen flex flex-col justify-center items-center text-center p-8 pt-32">
     <h1 class="text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent animate-pulse">Adityaraj Shrivastava</h1>
-    <div id="typewriter" class="mt-2 text-lg md:text-2xl text-gray-300"></div>
+    <div class="mt-2 text-lg md:text-2xl text-gray-300"></div>
     <p class="text-lg text-purple-300 font-medium mt-4 animate-fadeIn">
         A passionate Computer Science Engineering student at VIT Chennai, driven by creativity, code, and curiosity.
     </p>
@@ -104,7 +106,7 @@
   </section>
   
 
-  <!-- Skills Section -->
+  
   <!-- Skills Section -->
 <section id="skills" data-aos="fade-up" class="p-8 max-w-5xl mx-auto">
     <h2 class="text-3xl font-bold mb-8 text-center text-white">Skills</h2>
@@ -213,24 +215,41 @@
     </div>
   </section>
   
-  <!-- Certifications Section -->
   <section id="certifications" data-aos="fade-up" class="p-8 max-w-5xl mx-auto">
-    <h2 class="text-3xl font-bold mb-8 text-center text-white">Certifications</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
-      <div class="bg-gray-800 p-4 rounded-lg text-center">
-        <h4 class="text-lg font-semibold text-purple-300">Google Digital Marketing</h4>
+    <h2 class="text-3xl font-bold mb-6 text-center text-white">Certifications</h2>
+  
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide bg-gray-800 p-6 rounded-xl text-center">
+          <h3 class="text-xl font-semibold text-purple-400 mb-2">Google Digital Marketing</h3>
+          <p class="text-gray-300">Completed foundational training in SEO, SEM, and analytics with Google.</p>
+        </div>
+  
+        <!-- Slide 2 -->
+        <div class="swiper-slide bg-gray-800 p-6 rounded-xl text-center">
+          <h3 class="text-xl font-semibold text-purple-400 mb-2">C++ Programming</h3>
+          <p class="text-gray-300">Covered object-oriented programming, data types, and control structures.</p>
+        </div>
+  
+        <!-- Slide 3 -->
+        <div class="swiper-slide bg-gray-800 p-6 rounded-xl text-center">
+          <h3 class="text-xl font-semibold text-purple-400 mb-2">Data Structures & Algorithms</h3>
+          <p class="text-gray-300">Learned DSA concepts like arrays, trees, and sorting algorithms in depth.</p>
+        </div>
+  
+        <!-- Slide 4 -->
+        <div class="swiper-slide bg-gray-800 p-6 rounded-xl text-center">
+          <h3 class="text-xl font-semibold text-purple-400 mb-2">React.js Development</h3>
+          <p class="text-gray-300">Built dynamic web apps using components, hooks, and React Router.</p>
+        </div>
       </div>
-      <div class="bg-gray-800 p-4 rounded-lg text-center">
-        <h4 class="text-lg font-semibold text-purple-300">C++ Programming</h4>
-      </div>
-      <div class="bg-gray-800 p-4 rounded-lg text-center">
-        <h4 class="text-lg font-semibold text-purple-300">Data Structures and Algorithms</h4>
-      </div>
-      <div class="bg-gray-800 p-4 rounded-lg text-center">
-        <h4 class="text-lg font-semibold text-purple-300">React.js Development</h4>
-      </div>
+  
+      <!-- Pagination -->
+      <div class="swiper-pagination mt-4"></div>
     </div>
   </section>
+  
 <!-- Contact Section -->
 <section id="contact" class="py-20 px-6 text-center bg-black text-white">
     <h2 class="text-3xl font-bold mb-4 text-purple-400">Contact Me</h2>
@@ -362,19 +381,35 @@
       once: false
     });
   </script>
+  
+    <!-- Swiper.js JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
-    const aboutText = "I’m a 3rd-year Computer Science Engineering student at VIT Chennai, specializing in cybersecurity and frontend development. I enjoy solving real-world problems, conducting workshops, and building secure, responsive web experiences. My journey is fueled by curiosity and a deep commitment to learning.";
-  
-    const typewriterAbout = new Typewriter(document.getElementById('about-typewriter'), {
-      loop: false,
-      delay: 30
+    const swiper = new Swiper('.mySwiper', {
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 20,
+      speed: 3000, // Smooth continuous scroll
+      autoplay: {
+        delay: 0, // no delay between transitions
+        disableOnInteraction: false,
+      },
+      allowTouchMove: true,
+      grabCursor: true,
+      freeMode: {
+        enabled: true,
+        momentum: false,
+      },
+      breakpoints: {
+        640: { slidesPerView: 1 },
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 2 },
+      },
     });
-  
-    typewriterAbout
-      .typeString(aboutText)
-      .start();
   </script>
   
+  
+
 </body>
 
 </html>
