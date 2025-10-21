@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adityaraj Shrivastava | Portfolio</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/typewriter-effect@2.18.0/dist/core.js"></script>
+  <!-- Swiper.js CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typewriter-effect@2.18.0/dist/core.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    #bg-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+
+    @keyframes scroll-horizontal {
+      0% {
+        transform: translateX(0%);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .animate-cert-scroll {
+      animation: scroll-horizontal 15s linear infinite;
+      /* faster */
+    }
+
+    /* Optional scrollbar hide */
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+
+<body class="bg-black text-white overflow-x-hidden">
+  <!-- 3D Background Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Navbar -->
+  <nav class="w-full fixed top-0 left-0 z-50 bg-black bg-opacity-60 backdrop-blur-md border-b border-gray-800">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <!-- Quote in place of your name -->
+      <div class="text-sm md:text-lg font-semibold text-purple-400">
+        Curiosity in every keystroke
+      </div>
+
+      <!-- Hamburger Toggle -->
+      <button id="nav-toggle" class="text-white md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+      <!-- Nav Links -->
+      <ul id="nav-menu"
+        class="hidden flex-col absolute top-14 right-4 bg-black bg-opacity-70 backdrop-blur-md rounded-lg p-4 space-y-3 w-40 md:flex md:flex-row md:static md:bg-transparent md:space-x-6 md:space-y-0 md:w-auto text-sm md:text-base text-gray-300 transition-all duration-300">
+        <li><a href="#about" class="hover:text-white block">About Me</a></li>
+        <li><a href="#skills" class="hover:text-white block">Skills</a></li>
+        <li><a href="#projects" class="hover:text-white block">Projects</a></li>
+        <li><a href="#contact" class="hover:text-white block">Contact</a></li>
+        <li><a href="My Resume3.pdf" target="_blank"
+            class="hover:text-white transition text-purple-400 font-semibold">Resume</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- Hero Section -->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center p-8 pt-32">
+    <h1
+      class="text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent animate-pulse">
+      Adityaraj Shrivastava
+    </h1>
+
+    <!-- Typewriter Element -->
+    <div id="typewriter" class="mt-4 text-lg md:text-2xl text-purple-300 font-medium"></div>
+
+    <!-- Static Subtitle -->
+    <p class="text-lg text-gray-400 mt-2 animate-fadeIn">
+      A passionate Computer Science Engineering student at VIT Chennai, driven by creativity, code, and curiosity.
+    </p>
+  </section>
+
+
+
+  <!-- About Me Section -->
+  <section id="about" data-aos="fade-up" class="p-8 max-w-5xl mx-auto ">
+    <h2 class="text-3xl font-bold mb-4 text-purple-400">About Me</h2>
+    <p id="about-typewriter" class="text-gray-300 leading-relaxed mb-6">
+      I’m a 3rd-year Computer Science Engineering student at VIT Chennai, specializing in Java Full Stack development
+      and learning Ethical Hacking. I enjoy solving real-world problems, conducting workshops, and building secure,
+      responsive web experiences. My journey is fueled by curiosity and a deep commitment to learning.
+    </p>
+
+    <!-- Spacer between About and Experience -->
+    <div class="h-8"></div>
+
+    <!-- Experience Section -->
+    <div class="mb-6">
+      <h3 class="text-xl font-semibold text-purple-300 mb-2">Experience</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="bg-gray-800 p-4 rounded-lg">
+          <h4 class="text-lg font-bold text-purple-400 mb-1">Frontend Lead</h4>
+          <p class="text-gray-300 text-sm">NEXUS Club, VIT Chennai<br>Leading the frontend team for various tech events,
+            focusing on UI/UX optimization and modern frontend practices.</p>
+        </div>
+        <div class="bg-gray-800 p-4 rounded-lg">
+          <h4 class="text-lg font-bold text-purple-400 mb-1">Avionics Engineer</h4>
+          <p class="text-gray-300 text-sm">Team Aviators International<br>Contributed to the avionics subsystem of UAVs,
+            focusing on flight control integration, sensor interfacing, and mission-critical system logic.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Skills Section -->
+  <section id="skills" class="pt-32 px-6 text-white max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold text-center text-purple-400 mb-12" data-aos="fade-up">
+      Technical Skills
+    </h2>
+
+    <!-- Two-column Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+      <!-- Programming Languages -->
+      <div class="bg-gray-900/60 backdrop-blur-md p-6 rounded-2xl shadow-lg" data-aos="zoom-in">
+        <h3 class="text-2xl font-semibold mb-4 text-purple-400">Programming Languages</h3>
+        <div class="flex flex-wrap gap-4">
+          <div class="flex items-center gap-3 bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="w-6 h-6"
+              alt="Java">
+            <span>Java</span>
+          </div>
+          <div class="flex items-center gap-3 bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" class="w-6 h-6" alt="C">
+            <span>C</span>
+          </div>
+          <div class="flex items-center gap-3 bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+              class="w-6 h-6" alt="C++">
+            <span>C++</span>
+          </div>
+          <div class="flex items-center gap-3 bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-6 h-6"
+              alt="Python">
+            <span>Python</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Web Technologies -->
+      <div class="bg-gray-900/60 backdrop-blur-md p-6 rounded-2xl shadow-lg" data-aos="zoom-in">
+        <h3 class="text-2xl font-semibold mb-4 text-purple-400">Web Technologies</h3>
+        <div class="flex flex-wrap gap-4">
+          <div class="flex items-center gap-3 bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="w-6 h-6">
+            <span>HTML</span>
+          </div>
+          <div class="flex items-center gap-3 bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="w-6 h-6">
+            <span>CSS</span>
+          </div>
+          <div class="flex items-center gap-3 bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+              class="w-6 h-6">
+            <span>Tailwind CSS</span>
+          </div>
+          <div class="flex items-center gap-3 bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+              class="w-6 h-6">
+            <span>JavaScript</span>
+          </div>
+          <div class="flex items-center gap-3 bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-6 h-6">
+            <span>React.js</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Backend, Databases & ORMs -->
+      <div class="bg-gray-900/60 backdrop-blur-md p-6 rounded-2xl shadow-lg" data-aos="zoom-in">
+        <h3 class="text-2xl font-semibold mb-4 text-purple-400">Backend, Databases & ORMs</h3>
+        <div class="flex flex-wrap gap-4">
+          <div class="flex items-center gap-3 bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" class="w-6 h-6">
+            <span>Spring</span>
+          </div>
+          <div class="flex items-center gap-3 bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" class="w-6 h-6">
+            <span>Spring Boot</span>
+          </div>
+          <div class="flex items-center gap-3 bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+            <img src="https://cdn-icons-png.flaticon.com/512/825/825500.png" class="w-6 h-6">
+            <span>RESTful APIs</span>
+          </div>
+          <div class="flex items-center gap-3 bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+            <img src="https://cdn-icons-png.flaticon.com/512/2344/2344128.png" class="w-6 h-6">
+            <span>Hibernate</span>
+          </div>
+          <div class="flex items-center gap-3 bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" class="w-6 h-6"
+              alt="Postman">
+            <span>Postman</span>
+          </div>
+
+          <div class="flex items-center gap-3 bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="w-6 h-6">
+            <span>MySQL</span>
+          </div>
+          <div class="flex items-center gap-3 bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+            <img src="https://cdn-icons-png.flaticon.com/512/4248/4248443.png" class="w-6 h-6">
+            <span>SQL+</span>
+          </div>
+          <div class="flex items-center gap-3 bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+            <img src="https://cdn-icons-png.flaticon.com/512/5815/5815287.png" class="w-6 h-6">
+            <span>PL/SQL</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gray-900/60 backdrop-blur-md p-6 rounded-2xl shadow-lg h-fit" data-aos="zoom-in">
+        <h3 class="text-2xl font-semibold mb-4 text-purple-400">Software Development</h3>
+        <div class="flex flex-wrap gap-4">
+          <div class="flex items-center gap-3 bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+            <img src="https://cdn-icons-png.flaticon.com/512/2920/2920244.png" class="w-6 h-6">
+            <span>Data Structures & Algorithms</span>
+          </div>
+          <div class="flex items-center gap-3 bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+            <img src="https://cdn-icons-png.flaticon.com/512/2721/2721262.png" class="w-6 h-6">
+            <span>Object-Oriented Programming</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Version Control -->
+      <div class="bg-gray-900/60 backdrop-blur-md p-6 rounded-2xl shadow-lg" data-aos="zoom-in">
+        <h3 class="text-2xl font-semibold mb-4 text-purple-400">Version Control</h3>
+        <div class="flex flex-wrap gap-4">
+          <div class="flex items-center gap-3 bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="w-6 h-6">
+            <span>Git</span>
+          </div>
+          <div class="flex items-center gap-3 bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="w-6 h-6">
+            <span>GitHub</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+  <!-- Projects Section -->
+  <section id="projects" data-aos="fade-up" class="p-8 max-w-5xl mx-auto">
+    <h2 class="text-3xl font-bold mb-8 text-center text-white">Projects</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+
+      <div class="bg-gray-800 p-6 rounded-xl hover:scale-105 transition duration-300" data-aos="zoom-in">
+        <h3 class="text-xl font-semibold mb-2 text-purple-400">Feed Forward</h3>
+        <p class="text-gray-400 mb-2">
+          A web platform to prevent food wastage by allowing hotels and messes to list surplus food for charities.
+          Built using HTML, CSS, JS (frontend), Flask, and MySQL backend.
+        </p>
+        <a href="https://feed-forward.onrender.com/" target="_blank" class="text-blue-400 underline">Discover the
+          Solution</a>
+      </div>
+
+      <div class="bg-gray-800 p-6 rounded-xl hover:scale-105 transition duration-300" data-aos="zoom-in">
+        <h3 class="text-xl font-semibold mb-2 text-purple-400">GenixBill</h3>
+        <p class="text-gray-400 mb-2">
+          a full-stack Bill and Inventory Management System that uses React JS for an intuitive UI and Spring Boot for a
+          robust, scalable backend.
+          It automates inventory tracking, product lifecycle management, and sales bill generation.
+        </p>
+        <a href="https://genix-bill.netlify.app/" target="_blank" class="text-blue-400 underline">Uncover the
+          Details</a>
+      </div>
+
+      <div class="bg-gray-800 p-6 rounded-xl hover:scale-105 transition duration-300" data-aos="zoom-in">
+        <h3 class="text-xl font-semibold mb-2 text-purple-400">Urban-EYE</h3>
+        <p class="text-gray-400">
+          a full-stack civic issue reporting system (React JS and Spring Boot). It allows supervisors to
+          manage, assign, and track issues in real-time, streamlining municipal workflow via secure APIs and image
+          uploads.
+        </p>
+        <a href="https://expo.dev/artifacts/eas/meSDfcna3TvjsZkKAQsmuK.apk" target="_blank" class="text-blue-400 underline">Download the app</a>
+        <BR></BR>
+        <a href="https://urban-eye-admin-platform-mk8909s-projects.vercel.app/" target="_blank" class="text-blue-400 underline">View Admin Page</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <!-- Certifications Section -->
+  <section id="certifications" class="p-8 max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold mb-8 text-center text-white">Certifications</h2>
+
+    <!-- Scrollable Carousel -->
+    <div class="relative overflow-hidden">
+      <div class="cert-scroll-wrapper overflow-hidden whitespace-nowrap">
+        <div id="certifications-container" class="flex w-max animate-cert-scroll space-x-6">
+          <!-- Cards Block 1 -->
+          <div class="flex space-x-6">
+            <div class="bg-gray-800 p-6 min-w-[280px] rounded-xl text-center shadow-md">
+              <h3 class="text-lg font-semibold text-purple-400 mb-2">Google Digital Marketing</h3>
+              <p class="text-gray-300 text-sm">Fundamentals of online marketing certified by Google.</p>
+            </div>
+            <div class="bg-gray-800 p-6 min-w-[280px] rounded-xl text-center shadow-md">
+              <h3 class="text-lg font-semibold text-purple-400 mb-2">C++ Programming</h3>
+              <p class="text-gray-300 text-sm">Core concepts and hands-on C++ projects.</p>
+            </div>
+            <div class="bg-gray-800 p-6 min-w-[280px] rounded-xl text-center shadow-md">
+              <h3 class="text-lg font-semibold text-purple-400 mb-2">Data Structures & Algorithms</h3>
+              <p class="text-gray-300 text-sm">Mastered time and space-efficient code patterns.</p>
+            </div>
+            <div class="bg-gray-800 p-6 min-w-[280px] rounded-xl text-center shadow-md">
+              <h3 class="text-lg font-semibold text-purple-400 mb-2">React.js Certification</h3>
+              <p class="text-gray-300 text-sm">Built real-world apps using React, hooks, and APIs.</p>
+            </div>
+          </div>
+
+          <!-- Cards Block 2 (duplicate) -->
+          <div class="flex space-x-6">
+            <div class="bg-gray-800 p-6 min-w-[280px] rounded-xl text-center shadow-md">
+              <h3 class="text-lg font-semibold text-purple-400 mb-2">Google Digital Marketing</h3>
+              <p class="text-gray-300 text-sm">Fundamentals of online marketing certified by Google.</p>
+            </div>
+            <div class="bg-gray-800 p-6 min-w-[280px] rounded-xl text-center shadow-md">
+              <h3 class="text-lg font-semibold text-purple-400 mb-2">C++ Programming</h3>
+              <p class="text-gray-300 text-sm">Core concepts and hands-on C++ projects.</p>
+            </div>
+            <div class="bg-gray-800 p-6 min-w-[280px] rounded-xl text-center shadow-md">
+              <h3 class="text-lg font-semibold text-purple-400 mb-2">Data Structures & Algorithms</h3>
+              <p class="text-gray-300 text-sm">Mastered time and space-efficient code patterns.</p>
+            </div>
+            <div class="bg-gray-800 p-6 min-w-[280px] rounded-xl text-center shadow-md">
+              <h3 class="text-lg font-semibold text-purple-400 mb-2">React.js Certification</h3>
+              <p class="text-gray-300 text-sm">Built real-world apps using React, hooks, and APIs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-6 text-center bg-black text-white">
+    <h2 class="text-3xl font-bold mb-4 text-purple-400">Contact Me</h2>
+    <p class="mb-6 text-gray-300">
+      Feel free to reach out for collaboration, freelance opportunities, or just to say hi!
+    </p>
+
+    <!-- Social Buttons Below Contact -->
+    <div class="flex justify-center space-x-4 mb-4">
+      <a href="https://github.com/Shrivastava-Adityaraj2005" target="_blank"
+        class="bg-gray-800 hover:bg-gray-700 text-white font-semibold px-6 py-2 rounded-full shadow-md transition duration-300">
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/adityaraj-shrivastava-72a102293/" target="_blank"
+        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-full shadow-md transition duration-300">
+        LinkedIn
+      </a>
+      <a href="mailto:shrivastavaadityaraj2005@gmail.com" target="_blank"
+        class="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-2 rounded-full shadow-md transition duration-300">
+        Gmail
+      </a>
+    </div>
+
+
+
+    <p class="text-sm text-gray-500">Made with ❤️ by Adityaraj Shrivastava</p>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="text-center py-4 text-sm text-gray-600">
+    &copy; 2025 Adityaraj Shrivastava. All rights reserved.
+  </footer>
+
+  <!-- Typewriter Script -->
+  <script>
+    const typewriterTarget = document.getElementById('typewriter');
+    const typewriter = new Typewriter(typewriterTarget, {
+      loop: true,
+      delay: 75
+    });
+
+    typewriter
+      .typeString('Java Full Stack Developer')
+      .pauseFor(1000)
+      .deleteAll()
+      .typeString('React Enthusiast')
+      .pauseFor(1000)
+      .deleteAll()
+      .typeString('Ethical Hacking Learner')
+      .pauseFor(1000)
+      .deleteAll()
+      .start();
+  </script>
+
+  <!-- Mobile Navbar Toggle Script -->
+  <script>
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('hidden');
+    });
+
+    // Auto-close menu on link click
+    const navLinks = document.querySelectorAll('#nav-menu a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.add('hidden');
+      });
+    });
+  </script>
+
+
+  <!-- 3D Animated Starfield Background Script -->
+  <script>
+    const canvas = document.getElementById('bg-canvas');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+    camera.position.z = 5;
+
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+
+    // Create stars
+    const starsGeometry = new THREE.BufferGeometry();
+    const starCount = 2000;
+    const starVertices = [];
+
+    for (let i = 0; i < starCount; i++) {
+      const x = (Math.random() - 0.5) * 200;
+      const y = (Math.random() - 0.5) * 200;
+      const z = -Math.random() * 300;
+      starVertices.push(x, y, z);
+    }
+
+    starsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
+
+    const starsMaterial = new THREE.PointsMaterial({
+      color: 0x8888ff,
+      size: 0.7,
+    });
+
+    const starField = new THREE.Points(starsGeometry, starsMaterial);
+    scene.add(starField);
+
+    // Animate stars
+    function animate() {
+      requestAnimationFrame(animate);
+      starField.rotation.y += 0.0005;
+      starField.rotation.x += 0.0003;
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Handle resize
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: false
+    });
+  </script>
+
+  <!-- Swiper.js JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.mySwiper', {
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 20,
+      speed: 3000, // Smooth continuous scroll
+      autoplay: {
+        delay: 0, // no delay between transitions
+        disableOnInteraction: false,
+      },
+      allowTouchMove: true,
+      grabCursor: true,
+      freeMode: {
+        enabled: true,
+        momentum: false,
+      },
+      breakpoints: {
+        640: { slidesPerView: 1 },
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 2 },
+      },
+    });
+  </script>
+
+
+
+</body>
+
+</html>
